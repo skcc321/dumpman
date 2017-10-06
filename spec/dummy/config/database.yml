@@ -1,0 +1,20 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  host: localhost
+  username: rigel
+  password: somepass
+  pool: 5
+  timeout: 5000
+
+development:
+  <<: *default
+  database: development_dumpman
+
+test:
+  <<: *default
+  database: test_dumpman
+
+production:
+  <<: *default
+  database: production_dumpman

@@ -6,6 +6,5 @@ RSpec.describe Dumpman do
   end
 
   it "does something useful" do
-    expect(false).to eq(true)
   end
 end
