@@ -1,5 +1,8 @@
-require "dumpman/version"
+require "dumpman/comandor"
+require "dumpman/executor"
+require "dumpman/fetcher"
 require "dumpman/railtie"
+require "dumpman/version"
 
 module Dumpman
   mattr_accessor :dump_folder

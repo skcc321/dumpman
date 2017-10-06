@@ -33,12 +33,12 @@ namespace :db do
   desc "zips the database"
   task :compress => :environment do
     Dumpman::Commandor.dump
-    Dumpman::Compandor.zip
+    Dumpman::Commandor.zip
   end
 
   desc "unzips the database"
   task :extract => :environment do
-    Dumpman::Compandor.zip
+    Dumpman::Commandor.zip
     Dumpman::Commandor.restore
   end
 

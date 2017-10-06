@@ -1,4 +1,4 @@
-class Dumpman::Fetcher < Openstruct
+class Dumpman::Fetcher < OpenStruct
   def self.fetch(connection_name)
     connection = Dumpman.connections.find do |connection|
       connection.name == connection_name

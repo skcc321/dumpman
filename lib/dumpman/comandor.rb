@@ -1,4 +1,6 @@
 module Dumpman::Commandor
+  extend self
+
   def zip
     # clean up from old dump
     File.delete(Dumpman.dump_zip) if File.exists?(Dumpman.dump_zip)

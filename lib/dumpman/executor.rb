@@ -1,4 +1,6 @@
 module Dumpman::Executor
+  extend self
+
   def system(*commands)
     cmd = commands.joins(' && ')
     puts("executing: #{cmd}")

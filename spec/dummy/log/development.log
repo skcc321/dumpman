@@ -32,3 +32,15 @@ Migrating to CreateUsers (20171006094205)
   [1m[35m (0.1ms)[0m  BEGIN
   [1m[36m (3.5ms)[0m  [1mCREATE TABLE "users" ("id" serial primary key, "name" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
   [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (135.5ms)[0m  [1mDROP DATABASE IF EXISTS "development_dumpman"[0m
+  [1m[35m (106.8ms)[0m  DROP DATABASE IF EXISTS "test_dumpman"
+  [1m[36m (306.8ms)[0m  [1mCREATE DATABASE "development_dumpman" ENCODING = 'unicode'[0m
+  [1m[35m (305.7ms)[0m  CREATE DATABASE "test_dumpman" ENCODING = 'unicode'
+  [1m[36m (106.4ms)[0m  [1mDROP DATABASE IF EXISTS "development_dumpman"[0m
+  [1m[35m (106.5ms)[0m  DROP DATABASE IF EXISTS "test_dumpman"
+  [1m[36m (327.4ms)[0m  [1mCREATE DATABASE "development_dumpman" ENCODING = 'unicode'[0m
+  [1m[35m (303.4ms)[0m  CREATE DATABASE "test_dumpman" ENCODING = 'unicode'
+  [1m[36m (106.6ms)[0m  [1mDROP DATABASE IF EXISTS "development_dumpman"[0m
+  [1m[35m (106.9ms)[0m  DROP DATABASE IF EXISTS "test_dumpman"
+  [1m[36m (319.9ms)[0m  [1mCREATE DATABASE "development_dumpman" ENCODING = 'unicode'[0m
+  [1m[35m (309.6ms)[0m  CREATE DATABASE "test_dumpman" ENCODING = 'unicode'
