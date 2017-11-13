@@ -1,18 +1,16 @@
 # Dumpman
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/dumpman`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+Dumpman gem is what you need if you have application somewhere and need to dump your DB download it and up that dump localy!
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'dumpman'
+gem 'dumpman', git: 'git@github.com:skcc321/dumpman.git'
 ```
 
-And then execute:
+Then execute:
 
     $ bundle
 
@@ -20,9 +18,18 @@ Or install it yourself as:
 
     $ gem install dumpman
 
+Generate default config:
+
+    $ rails g dumpman
+
+Update app/config/initializers/dumpman.rb with propper settings.
+
 ## Usage
 
-TODO: Write usage instructions here
+Now you are able to user awesome commands:
+
+    $ rake db:up_qa
+    $ rake db:up_prod
 
 ## Development
 

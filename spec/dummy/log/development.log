@@ -165,3 +165,11 @@ WHERE c.contype = 'f'
   AND t3.nspname = ANY (current_schemas(false))
 ORDER BY c.conname
 [0m
+  [1m[36m (5006.4ms)[0m  [1mDROP DATABASE IF EXISTS "overhaul_backend_development"[0m
+  [1m[35m (110.3ms)[0m  DROP DATABASE IF EXISTS "overhaul_backend_test"
+  [1m[36m (0.2ms)[0m  [1mCREATE DATABASE "overhaul_backend_development" ENCODING = 'unicode'[0m
+  [1m[35m (306.6ms)[0m  CREATE DATABASE "overhaul_backend_test" ENCODING = 'unicode'
+  [1m[36m (5006.7ms)[0m  [1mDROP DATABASE IF EXISTS "overhaul_backend_development"[0m
+  [1m[35m (105.9ms)[0m  DROP DATABASE IF EXISTS "overhaul_backend_test"
+  [1m[36m (0.2ms)[0m  [1mCREATE DATABASE "overhaul_backend_development" ENCODING = 'unicode'[0m
+  [1m[35m (390.6ms)[0m  CREATE DATABASE "overhaul_backend_test" ENCODING = 'unicode'
