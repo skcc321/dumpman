@@ -1,24 +1,16 @@
 Dumpman.setup do |config|
-  config.dump_file_name = "overhaul-backend.sql"
+  # dump file name
+  config.dump_file_name = "dumpman.sql"
 
-  config.connect do |connection|
-    connection.name = 'qa'
-    connection.env = 'qa_aws'
-    connection.server = 'qa'
-    connection.path = '/opt/overhaul-backend/current'
-  end
+  # :prod is uniq connection name
+  config.connect :qa do |connection|
+    # rails env
+    connection.env = 'production'
 
-  config.connect do |connection|
-    connection.name = 'prod'
-    connection.env = 'production_aws'
-    connection.server = 'app1'
-    connection.path = '/opt/overhaul-backend/current'
-  end
+    # ssh command for connection to the server
+    connection.server = 'deployer@157.122.77.55'
 
-  config.connect do |connection|
-    connection.name = 'stage'
-    connection.env = 'staging'
-    connection.server = 'stage'
-    connection.path = '/opt/overhaul-backend/current'
+    # app path on the server
+    connection.path = '~/application/current'
   end
 end

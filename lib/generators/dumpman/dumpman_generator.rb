@@ -1,4 +1,4 @@
-class DumpmanGenerator < Rails::Generators::NamedBase
+class DumpmanGenerator < Rails::Generators::Base
   source_root File.expand_path('../templates', __FILE__)
 
   desc "This generator creates an dumpman config at config/initializers"

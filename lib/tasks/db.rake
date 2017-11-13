@@ -5,11 +5,11 @@ namespace :db do
   config = File.open(Rails.root.join('config', 'initializers', 'dumpman.rb')).read
   eval(config)
 
-  Dumpman.connection_names.each do |connection|
-    namespace connection do
-      desc "up #{connection} dump"
+  Dumpman.connection_names.each do |name|
+    namespace name do
+      desc "up #{name} dump"
       task :up => :environment do
-        Dumpman::Fetcher.fetch(connection)
+        Dumpman::Fetcher.fetch(name)
         Dumpman::Executor.rake(:up)
       end
     end

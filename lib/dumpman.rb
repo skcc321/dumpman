@@ -25,12 +25,12 @@ module Dumpman
       connections.map(&:name)
     end
 
-    def connect
+    def connect(name)
       connection = Struct::Connection.new
 
       yield(connection)
 
-      connection.name = connection.name.to_sym
+      connection.name = name
 
       connections << connection
     end
