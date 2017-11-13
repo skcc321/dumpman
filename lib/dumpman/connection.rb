@@ -6,6 +6,14 @@ module Dumpman
       @name = name
     end
 
+    def attrs
+      {
+        env: @env,
+        server: @server,
+        path: @path
+      }
+    end
+
     def env(val)
       self.env = val
     end

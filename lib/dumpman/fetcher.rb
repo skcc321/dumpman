@@ -5,7 +5,7 @@ module Dumpman
         connection.name == connection_name
       end
 
-      instance = self.new(connection)
+      instance = self.new(connection.attrs)
       instance.fetch_remote_dump
     end
 
