@@ -3,6 +3,7 @@ require "dumpman/executor"
 require "dumpman/fetcher"
 require "dumpman/railtie"
 require "dumpman/version"
+require "generators/dumpman_generator"
 
 module Dumpman
   mattr_accessor :dump_folder
