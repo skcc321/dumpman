@@ -1,23 +1,18 @@
 require "zip"
-require "pry"
+require "dumpman"
 
 namespace :db do
-  desc "up QA dump"
-  task :up_qa => :environment do
-    Dumpman::Fetcher.fetch(:qa)
-    Dumpman::Executor.rake(:up)
-  end
+  config = File.open(Rails.root.join('config', 'initializers', 'dumpman.rb')).read
+  eval(config)
 
-  desc "up STAGE dump"
-  task :up_stage => :environment do
-    Dumpman::Fetcher.fetch(:stage)
-    Dumpman::Executor.rake(:up)
-  end
-
-  desc "up PROD dump"
-  task :up_prod => :environment do
-    Dumpman::Fetcher.fetch(:prod)
-    Dumpman::Executor.rake(:up)
+  Dumpman.connection_names.each do |connection|
+    namespace connection do
+      desc "up #{connection} dump"
+      task :up => :environment do
+        Dumpman::Fetcher.fetch(connection)
+        Dumpman::Executor.rake(:up)
+      end
+    end
   end
 
   desc "up LOCAL dump"

@@ -21,6 +21,10 @@ module Dumpman
       yield(self)
     end
 
+    def connection_names
+      connections.map(&:name)
+    end
+
     def connect
       connection = Struct::Connection.new
 
