@@ -1,3 +1,4 @@
+require "dumpman/connection"
 require "dumpman/comandor"
 require "dumpman/executor"
 require "dumpman/fetcher"
@@ -14,24 +15,18 @@ module Dumpman
   @@dump_file_name = "dumpman.sql"
   @@connections = []
 
-  Struct.new('Connection', :name, :env, :server, :path)
-
   class << self
-    def setup
-      yield(self)
+    def setup(&block)
+      self.instance_eval(&block)
     end
 
     def connection_names
       connections.map(&:name)
     end
 
-    def connect(name)
-      connection = Struct::Connection.new
-
-      yield(connection)
-
-      connection.name = name
-
+    def define_source(name, &block)
+      connection = Dumpman::Connection.new(name)
+      connection.instance_eval(&block)
       connections << connection
     end
 
