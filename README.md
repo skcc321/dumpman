@@ -28,8 +28,10 @@ Update app/config/initializers/dumpman.rb with propper settings.
 
 Now you are able to user awesome commands:
 
-    $ rake db:up_qa
-    $ rake db:up_prod
+    $ rake db:prod:up
+    $ rake db:stage:up
+    $ rake db:qa:up
+    ...
 
 ## Development
 
