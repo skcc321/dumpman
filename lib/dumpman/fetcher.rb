@@ -4,7 +4,8 @@ class Dumpman::Fetcher < OpenStruct
       connection.name == connection_name
     end
 
-    self.new(connection)
+    instance = self.new(connection)
+    instance.fetch_remote_dump
   end
 
   def fetch_remote_dump
@@ -17,10 +18,10 @@ class Dumpman::Fetcher < OpenStruct
   private
 
   def compress_dump_remotely
-    "ssh #{server_name} RAILS_ENV=#{rails_env} rake db:compress"
+    "ssh #{server} RAILS_ENV=#{env} rake db:compress"
   end
 
   def fetch_dump_to_local
-    "scp #{server_name}:#{app_location}/#{Dumpman.dump_zip_name} #{Dumpman.dump_folder}/"
+    "scp #{server}:#{path}/#{Dumpman.dump_zip_name} #{Dumpman.dump_folder}/"
   end
 end

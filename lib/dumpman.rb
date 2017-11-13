@@ -22,8 +22,13 @@ module Dumpman
     end
 
     def connect
-      connection = Connection.new
-      connections << yield(connection)
+      connection = Struct::Connection.new
+
+      yield(connection)
+
+      connection.name = connection.name.to_sym
+
+      connections << connection
     end
 
     def dump_file
@@ -31,7 +36,7 @@ module Dumpman
     end
 
     def dump_zip_name
-      "#{dump_zip_name}.zip"
+      "#{dump_file_name}.zip"
     end
 
     def dump_zip

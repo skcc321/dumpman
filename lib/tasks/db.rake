@@ -38,7 +38,7 @@ namespace :db do
 
   desc "unzips the database"
   task :extract => :environment do
-    Dumpman::Commandor.zip
+    Dumpman::Commandor.unzip
     Dumpman::Commandor.restore
   end
 

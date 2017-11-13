@@ -2,9 +2,9 @@ module Dumpman::Executor
   extend self
 
   def system(*commands)
-    cmd = commands.joins(' && ')
+    cmd = commands.join(' && ')
     puts("executing: #{cmd}")
-    system(cmd)
+    Kernel.system(cmd)
   end
 
   def rake(*commands)
