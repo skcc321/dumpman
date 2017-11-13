@@ -20,6 +20,10 @@ module Dumpman
       self.instance_eval(&block)
     end
 
+    def file_name(val)
+      self.dump_file_name = val
+    end
+
     def connection_names
       connections.map(&:name)
     end
