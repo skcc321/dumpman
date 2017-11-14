@@ -1,4 +1,6 @@
 [![Build Status](https://travis-ci.org/skcc321/dumpman.svg?branch=master)](https://travis-ci.org/skcc321/dumpman)
+[![Maintainability](https://api.codeclimate.com/v1/badges/3f69b1bb862be2a7e6ce/maintainability)](https://codeclimate.com/github/skcc321/dumpman/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/3f69b1bb862be2a7e6ce/test_coverage)](https://codeclimate.com/github/skcc321/dumpman/test_coverage)
 
 # Dumpman
 Dumpman gem is what you need if you have application somewhere and need to dump your DB download it and up that dump localy!
