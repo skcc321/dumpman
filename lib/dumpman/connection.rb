@@ -1,6 +1,6 @@
 module Dumpman
   class Connection
-    attr_accessor :name, :env, :server, :path
+    attr_accessor :name, :app_env, :ssh_cmd, :app_path, :ssh_opts
 
     def initialize(name)
       @name = name
@@ -8,22 +8,27 @@ module Dumpman
 
     def attrs
       {
-        env: @env,
-        server: @server,
-        path: @path
+        app_env: @app_env,
+        ssh_cmd: @ssh_cmd,
+        ssh_opts: @ssh_opts,
+        app_path: @app_path,
       }
     end
 
-    def env(val)
-      self.env = val
+    def app_env(val)
+      self.app_env = val
     end
 
-    def server(val)
-      self.server = val
+    def ssh_cmd(val)
+      self.ssh_cmd = val
     end
 
-    def path(val)
-      self.path = val
+    def app_path(val)
+      self.app_path = val
+    end
+
+    def ssh_opts(val)
+      self.ssh_opts = val
     end
   end
 end

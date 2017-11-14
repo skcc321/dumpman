@@ -19,11 +19,11 @@ module Dumpman
     private
 
     def compress_dump_remotely
-      "ssh #{server} RAILS_ENV=#{env} rake db:compress"
+      "ssh #{ssh_opts} #{ssh_cmd} RAILS_ENV=#{app_env} rake db:compress"
     end
 
     def fetch_dump_to_local
-      "scp #{server}:#{path}/#{Dumpman.dump_zip_name} #{Dumpman.dump_folder}/"
+      "scp #{ssh_opts} #{ssh_cmd}:#{path}/#{Dumpman.dump_zip_name} #{Dumpman.dump_folder}/"
     end
   end
 end

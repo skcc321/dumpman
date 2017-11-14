@@ -4,13 +4,17 @@ Dumpman.setup do
 
   # :prod is uniq connection name
   define_source :prod do
-    # rails env
-    env 'production'
+    # application environment (RAILS_ENV)
+    app_env 'production'
 
-    # ssh command for connection to the server
-    server 'deployer@157.122.77.55'
+    # ssh command for connection to the remote server
+    ssh_cmd 'root@192.168.1.1'
 
-    # app path on the server
-    path '~/application/current'
+    # ssh options for connection to the remote server
+    # example:
+    # ssh_opts '-i ~/.ssh/sertificate.pem'
+
+    # app path on the remote server
+    app_path '~/application/current'
   end
 end
