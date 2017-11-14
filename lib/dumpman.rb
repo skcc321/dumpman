@@ -6,8 +6,6 @@ require "dumpman/railtie"
 require "dumpman/version"
 
 module Dumpman
-  mattr_accessor :dump_folder
-  mattr_accessor :dump_file_name
   mattr_accessor :db_config
   mattr_accessor :connections
 
@@ -20,8 +18,14 @@ module Dumpman
       self.instance_eval(&block)
     end
 
-    def file_name(val)
-      self.dump_file_name = val
+    def dump_file_name(val = nil)
+      return @@dump_file_name unless val.present?
+      @@dump_file_name = val
+    end
+
+    def dump_folder(val = nil)
+      return @@dump_folder unless val.present?
+      @@dump_folder = val
     end
 
     def connection_names
