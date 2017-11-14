@@ -7,6 +7,7 @@
 /pkg/
 /spec/reports/
 /spec/dummy/config/database.yml
+/spec/dummy/config/initializers/dumpman.rb
 /spec/dummy/log/
 /tmp/
 
