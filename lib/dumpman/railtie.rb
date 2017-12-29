@@ -1,5 +1,5 @@
 module Dumpman
-  class Railtie < Rails::Railtie
+  class Railtie < ::Rails::Railtie
     rake_tasks do
       load 'tasks/db.rake'
     end
