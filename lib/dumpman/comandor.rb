@@ -1,3 +1,5 @@
+require "rubyzip"
+
 module Dumpman
   module Commandor
     extend self

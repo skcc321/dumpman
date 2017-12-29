@@ -8,7 +8,6 @@ require "dumpman/executor"
 require "dumpman/fetcher"
 require "dumpman/railtie"
 require "dumpman/version"
-require "rails"
 
 module Dumpman
   mattr_accessor :connections

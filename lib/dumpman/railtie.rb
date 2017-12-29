@@ -1,3 +1,5 @@
+require "rails"
+
 module Dumpman
   class Railtie < ::Rails::Railtie
     rake_tasks do

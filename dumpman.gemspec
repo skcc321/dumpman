@@ -30,11 +30,11 @@ Gem::Specification.new do |spec|
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
 
-  spec.add_dependency "pg", "~> 0.18.4"
   spec.add_dependency "rails", "~> 4.2.8"
   spec.add_dependency "rake", "~> 12.1.0"
   spec.add_dependency "rubyzip", ">= 1.2.1"
 
+  spec.add_development_dependency "pg", "~> 0.18.4"
   spec.add_development_dependency "bundler", "~> 1.15"
   spec.add_development_dependency "pry-byebug"
   spec.add_development_dependency "rspec", "~> 3.5.0"
