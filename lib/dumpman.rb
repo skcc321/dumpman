@@ -1,4 +1,8 @@
 require "dumpman/connection"
+require "dumpman/database"
+require "dumpman/adapters/base"
+require "dumpman/adapters/pg"
+require "dumpman/adapters/mysql"
 require "dumpman/comandor"
 require "dumpman/executor"
 require "dumpman/fetcher"
@@ -6,7 +10,6 @@ require "dumpman/railtie"
 require "dumpman/version"
 
 module Dumpman
-  mattr_accessor :db_config
   mattr_accessor :connections
 
   @@dump_folder = "."
@@ -48,17 +51,6 @@ module Dumpman
 
     def dump_zip
       File.join(dump_folder, dump_zip_name)
-    end
-
-    def with_db_config
-      db_config ||= ActiveRecord::Base.connection_config
-
-      yield(
-        db_config[:database],
-        db_config[:username],
-        db_config[:password],
-        db_config[:host]
-      )
     end
   end
 end

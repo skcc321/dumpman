@@ -24,18 +24,12 @@ module Dumpman
     end
 
     def dump
-      Dumpman.with_db_config do |database, username, password, host|
-        cmd = "PGPASSWORD=#{password} pg_dump --username #{username} --verbose --clean --no-owner --no-acl --format=c #{database} > #{Dumpman.dump_file} -h #{host}"
-        Dumpman::Executor.system(cmd)
-      end
+      Dumpman::Database.dump
     end
 
     def restore
-      Dumpman.with_db_config do |database, username, password, host|
-        cmd = "PGPASSWORD=#{password} pg_restore --verbose --username #{username} --clean --no-owner --no-acl --dbname #{database} #{Dumpman.dump_file} -h #{host}"
-        Dumpman::Executor.rake(:drop, :create)
-        Dumpman::Executor.system(cmd)
-      end
+      Dumpman::Executor.rake(:drop, :create)
+      Dumpman::Database.restore
     end
   end
 end
