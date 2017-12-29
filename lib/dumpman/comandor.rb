@@ -1,4 +1,4 @@
-require "rubyzip"
+require "zip"
 
 module Dumpman
   module Commandor
