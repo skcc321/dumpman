@@ -2,22 +2,11 @@ module Dumpman
   module Adapters
     class Mysql < Base
       def dump_cmd
-        "mysqldump #{options} > #{Dumpman.dump_file}"
+        "MYSQL_PWD=#{password} mysqldump -u #{username} -h #{host} #{database} > #{Dumpman.dump_file}"
       end
 
       def restore_cmd
-        "mysql #{options} > #{Dumpman.dump_file}"
-      end
-
-      private
-
-      def options_mapping
-        {
-          "-u" => username,
-          "-p" => password,
-          "-h" => host,
-          "-d" => database,
-        }
+        "MYSQL_PWD=#{password} mysql -u #{username} -h #{host} #{database} < #{Dumpman.dump_file}"
       end
     end
   end

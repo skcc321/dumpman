@@ -19,18 +19,7 @@ module Dumpman
         raise(NotImplementedError)
       end
 
-      def options_mapping
-        raise(NotImplementedError)
-      end
-
       private
-
-        def options
-          options_mapping.inject("") do |memo, (key, value)|
-            memo += " #{key} #{value}" if value.present?
-            memo
-          end
-        end
 
         def db_config
           @db_config ||= ActiveRecord::Base.connection_config
