@@ -1,6 +1,6 @@
 Dumpman.setup do
   # dump file name
-  file_name "dumpman.sql"
+  dump_file_name "dumpman.sql"
 
   # :prod is uniq connection name
   define_source :prod do
