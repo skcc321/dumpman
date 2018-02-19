@@ -1,0 +1,5 @@
+engines:
+  brakeman:
+    enabled: true
+    config:
+      path: spec/dummy
