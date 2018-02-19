@@ -9,7 +9,8 @@ before_script:
   - cp config/database.yml.travis config/database.yml
 
 script:
-  - bundle exec rspec ../../spec
+  - cd ../..
+  - rspec
 
 services:
   - postgresql
