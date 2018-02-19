@@ -7,7 +7,6 @@ before_script:
   - psql -c 'create database travis_ci_test;' -U postgres
   - cd spec/dummy
   - cp config/database.yml.travis config/database.yml
-  - cd ../..
 
 services:
   - postgresql
