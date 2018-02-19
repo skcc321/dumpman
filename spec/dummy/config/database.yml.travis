@@ -1,6 +1,6 @@
 test:
   adapter: postgresql
   database: travis_ci_test
-  username: root
   encoding: utf8
+  username:
   password:
