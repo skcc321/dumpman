@@ -6,5 +6,6 @@ RSpec.describe Dumpman do
   end
 
   it "does something useful" do
+    expect{PostgresUser.create}.to change{PostgresUser.count}.by(1)
   end
 end
