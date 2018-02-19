@@ -1,5 +1,5 @@
-engines:
+plugins:
   brakeman:
     enabled: true
     config:
-      path: spec/dummy
+      app_path: spec/dummy
