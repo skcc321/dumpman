@@ -16,4 +16,16 @@ RSpec.configure do |config|
   config.expect_with :rspec do |c|
     c.syntax = :expect
   end
+
+  config.before(:suite) do
+    File.delete(Dumpman.dump_zip_name) if File.exists?(Dumpman.dump_zip_name)
+    File.delete(Dumpman.dump_file_name) if File.exists?(Dumpman.dump_file_name)
+  end
+
+  config.after(:example) do
+    File.delete(Dumpman.dump_zip_name) if File.exists?(Dumpman.dump_zip_name)
+    File.delete(Dumpman.dump_file_name) if File.exists?(Dumpman.dump_file_name)
+  end
 end
+
+Rails.application.load_tasks
