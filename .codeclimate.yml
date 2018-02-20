@@ -3,3 +3,15 @@ plugins:
     enabled: true
     config:
       app_path: spec/dummy
+  bundler-audit:
+    enabled: true
+  flog:
+    enabled: true
+    config:
+      score_threshold: 20.0
+  reek:
+    enabled: true
+  rubocop:
+    enabled: true
+  rubymotion:
+    enabled: true
