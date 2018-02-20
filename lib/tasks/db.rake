@@ -1,5 +1,5 @@
-require "zip"
-require "dumpman"
+require 'zip'
+require 'dumpman'
 
 namespace :db do
   config = File.open(Rails.root.join('config', 'initializers', 'dumpman.rb')).read
@@ -15,7 +15,7 @@ namespace :db do
     end
   end
 
-  desc "up LOCAL dump"
+  desc 'up LOCAL dump'
   task :up => :environment do
     Dumpman::Executor.rake(
       :drop,
@@ -25,24 +25,24 @@ namespace :db do
     )
   end
 
-  desc "zips the database"
+  desc 'zips the database'
   task :compress => :environment do
     Dumpman::Commandor.dump
     Dumpman::Commandor.zip
   end
 
-  desc "unzips the database"
+  desc 'unzips the database'
   task :extract => :environment do
     Dumpman::Commandor.unzip
     Dumpman::Commandor.restore
   end
 
-  desc "dumps the database"
+  desc 'dumps the database'
   task :dump => :environment do
     Dumpman::Commandor.dump
   end
 
-  desc "restores the database"
+  desc 'restores the database'
   task :restore => :environment do
     Dumpman::Commandor.restore
   end

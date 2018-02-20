@@ -1,4 +1,4 @@
-require "rails"
+require 'rails'
 
 module Dumpman
   class Railtie < ::Rails::Railtie

@@ -1,19 +1,19 @@
-require "dumpman/connection"
-require "dumpman/database"
-require "dumpman/adapters/base"
-require "dumpman/adapters/pg"
-require "dumpman/adapters/mysql"
-require "dumpman/comandor"
-require "dumpman/executor"
-require "dumpman/fetcher"
-require "dumpman/railtie"
-require "dumpman/version"
+require 'dumpman/connection'
+require 'dumpman/database'
+require 'dumpman/adapters/base'
+require 'dumpman/adapters/pg'
+require 'dumpman/adapters/mysql'
+require 'dumpman/comandor'
+require 'dumpman/executor'
+require 'dumpman/fetcher'
+require 'dumpman/railtie'
+require 'dumpman/version'
 
 module Dumpman
   mattr_accessor :connections
 
-  @@dump_folder = "."
-  @@dump_file_name = "dumpman.sql"
+  @@dump_folder = '.'
+  @@dump_file_name = 'dumpman.sql'
   @@connections = []
 
   class << self

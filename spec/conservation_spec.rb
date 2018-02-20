@@ -1,10 +1,10 @@
-require "rake"
-require "spec_helper"
+require 'rake'
+require 'spec_helper'
 
 RSpec.describe Dumpman do
   context 'conservation' do
     describe 'db:dump' do
-      it "creates db dump file" do
+      it 'creates db dump file' do
         expect do
           Rake::Task['db:dump'].reenable
           Rake::Task['db:dump'].invoke
@@ -13,7 +13,7 @@ RSpec.describe Dumpman do
     end
 
     describe 'db:compress' do
-      it "creates zip file with db dump" do
+      it 'creates zip file with db dump' do
         expect do
           Rake::Task['db:compress'].reenable
           Rake::Task['db:compress'].invoke
