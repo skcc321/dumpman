@@ -1,3 +1,3 @@
 module Dumpman
-  VERSION = "0.9.9"
+  VERSION = "0.1.0"
 end
