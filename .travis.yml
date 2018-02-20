@@ -23,11 +23,8 @@ before_script:
   # db setup
   - psql -c 'create database travis_ci_test;' -U postgres
   - cp spec/dummy/config/database.yml.travis spec/dummy/config/database.yml
-  # - cd spec/dummy
-  # - RAILS_ENV=test bundle exec rake db:migrate --trace
 
 script:
-  # - cd ../..
   - bundle exec rspec
 
 after_script:
