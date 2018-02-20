@@ -6,7 +6,7 @@ module Dumpman
       end
 
       def restore_cmd
-        "PGPASSWORD=#{password} pg_restore --verbose --username #{username} --clean --no-owner --no-acl --dbname #{database} #{Dumpman.dump_file} -h #{host}"
+        "PGPASSWORD=#{password} pg_restore --verbose --username #{username} --clean --no-owner --no-acl -d #{database} #{Dumpman.dump_file} -h #{host}"
       end
     end
   end
