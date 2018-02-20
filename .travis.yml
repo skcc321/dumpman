@@ -14,6 +14,13 @@ before_script:
 
 script:
   - cd ../..
+  - rvm use 2.2.9
+  - rspec
+  - rvm use 2.3.6
+  - rspec
+  - rvm use 2.4.3
+  - rspec
+  - rvm use 2.5.0
   - rspec
 
 services:
