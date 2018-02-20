@@ -15,20 +15,23 @@ rvm:
 before_install: gem install bundler -v 1.15.3
 
 before_script:
+  # coverage
   - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
   - chmod +x ./cc-test-reporter
   - ./cc-test-reporter before-build
 
+  # db setup
   - psql -c 'create database travis_ci_test;' -U postgres
-  - cd spec/dummy
-  - cp config/database.yml.travis config/database.yml
-  - RAILS_ENV=test bundle exec rake db:migrate --trace
+  - cp spec/dummy/config/database.yml.travis spec/dummy/config/database.yml
+  # - cd spec/dummy
+  # - RAILS_ENV=test bundle exec rake db:migrate --trace
 
 script:
-  - cd ../..
+  # - cd ../..
   - bundle exec rspec
 
 after_script:
+  # coverage
   - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
 
 services:
