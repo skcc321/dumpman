@@ -23,13 +23,17 @@ RSpec.describe Dumpman do
 
     context 'extraction' do
       describe 'db:restore' do
-        it "creates db dump file" do
-          # PostgresUser.create(name: 'test name')
-          Rake::Task['db:dump'].invoke
-          Rake::Task['db:drop'].invoke
+        it "restores db from dump file" do
           Rake::Task['db:create'].invoke
-          Rake::Task['db:restore'].invoke
           Rake::Task['db:migrate'].invoke
+          # PostgresUser.create(name: 'test name')
+
+          Rake::Task['db:dump'].invoke
+          #
+          # PostgresUser.destroy_all
+
+          Rake::Task['db:restore'].invoke
+          #
           # expect(PostgresUser.count).to eq(1)
         end
       end

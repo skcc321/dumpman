@@ -8,7 +8,7 @@ module Dumpman
       end
 
       def self.restore_cmd
-        instance.dump_cmd
+        instance.restore_cmd
       end
 
       def dump_cmd
