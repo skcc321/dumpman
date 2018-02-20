@@ -18,9 +18,12 @@ RSpec.configure do |config|
     c.syntax = :expect
   end
 
-  config.before(:suite) do
+  config.before(:example) do
     File.delete(Dumpman.dump_zip_name) if File.exists?(Dumpman.dump_zip_name)
     File.delete(Dumpman.dump_file_name) if File.exists?(Dumpman.dump_file_name)
+
+    Rake::Task['db:create'].invoke
+    Rake::Task['db:migrate'].invoke
   end
 
   config.after(:example) do
