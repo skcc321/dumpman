@@ -55,7 +55,7 @@ Update app/config/initializers/dumpman.rb with propper settings.
 
 ## Usage
 
-Now you are able to user awesome commands:
+Now you are able to use awesome commands:
 
     $ rake db:prod:up
     $ rake db:stage:up
