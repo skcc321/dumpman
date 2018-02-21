@@ -20,9 +20,13 @@ before_script:
   - chmod +x ./cc-test-reporter
   - ./cc-test-reporter before-build
 
-  # db setup
-  - psql -c 'create database travis_ci_test;' -U postgres
+  # pg db setup
+  - psql -c 'create database dumpman_test;' -U postgres
   - cp spec/dummy/config/pg.database.yml.travis spec/dummy/config/database.yml
+
+  # mysql db setup
+  - mysql -e 'CREATE DATABASE dumpman_test;'
+  - cp spec/dummy/config/mysql.database.yml.travis spec/dummy/config/database.yml
 
 script:
   - bundle exec rspec
@@ -33,3 +37,4 @@ after_script:
 
 services:
   - postgresql
+  - mysql
