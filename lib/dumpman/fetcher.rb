@@ -19,7 +19,7 @@ module Dumpman
     private
 
     def compress_dump_remotely
-      "ssh #{ssh_opts} #{ssh_cmd} 'cd #{app_path} && RAILS_ENV=#{app_env} bundle exec rake db:compress'"
+      "ssh #{ssh_opts} #{ssh_cmd} 'cd #{app_path} && bash --login -c \"RAILS_ENV=#{app_env} bundle exec rake db:compress\"'"
     end
 
     def fetch_dump_to_local
