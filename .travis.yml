@@ -24,12 +24,13 @@ before_script:
   - ./cc-test-reporter before-build
 
   # pg db setup
-  - sh -c "if [ '$DB' = 'pg' ]; psql -c 'create database dumpman_test;' -U postgres; fi"
-  - sh -c "if [ '$DB' = 'pg' ]; cp spec/dummy/config/pg.database.yml.travis spec/dummy/config/database.yml; fi"
+  - sh -c "if [ '$DB' = 'postgres' ]; then psql -c 'DROP DATABASE IF EXISTS dumpman_test;' -U postgres; fi"
+  - sh -c "if [ '$DB' = 'postgres' ]; then psql -c 'CREATE DATABASE dumpman_test;' -U postgres; fi"
+  - sh -c "if [ '$DB' = 'pg' ]; then cp spec/dummy/config/pg.database.yml.travis spec/dummy/config/database.yml; fi"
 
   # mysql db setup
-  - sh -c "if [ '$DB' = 'mysql' ]; mysql -e 'CREATE DATABASE IF NOT EXISTS dumpman_test;'; fi"
-  - sh -c "if [ '$DB' = 'mysql' ]; cp spec/dummy/config/mysql.database.yml.travis spec/dummy/config/database.yml; fi"
+  - sh -c "if [ '$DB' = 'mysql' ]; then mysql -e 'CREATE DATABASE IF NOT EXISTS dumpman_test;'; fi"
+  - sh -c "if [ '$DB' = 'mysql' ]; then cp spec/dummy/config/mysql.database.yml.travis spec/dummy/config/database.yml; fi"
 
 script:
   - bundle exec rspec
