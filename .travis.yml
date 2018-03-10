@@ -3,6 +3,8 @@ sudo: false
 env:
   global:
     - CC_TEST_REPORTER_ID=39b5b04086637b8de798d0e2ca0ba2a5ea4c0e2855bcf4e6e0daa4b10a38bf0d
+  - DB = pg
+  - DB = mysql
 
 language: ruby
 
@@ -21,12 +23,14 @@ before_script:
   - ./cc-test-reporter before-build
 
   # pg db setup
-  - psql -c 'create database dumpman_test;' -U postgres
-  - cp spec/dummy/config/pg.database.yml.travis spec/dummy/config/database.yml
+  - if: env(DB) = pg
+    - psql -c 'create database dumpman_test;' -U postgres
+    - cp spec/dummy/config/pg.database.yml.travis spec/dummy/config/database.yml
 
   # mysql db setup
-  - mysql -e 'CREATE DATABASE dumpman_test;'
-  - cp spec/dummy/config/mysql.database.yml.travis spec/dummy/config/database.yml
+  - if: env(DB) = mysql
+    - mysql -e 'CREATE DATABASE dumpman_test;'
+    - cp spec/dummy/config/mysql.database.yml.travis spec/dummy/config/database.yml
 
 script:
   - bundle exec rspec
@@ -36,5 +40,7 @@ after_script:
   - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
 
 services:
-  - postgresql
-  - mysql
+  - if: env(DB) = pg
+    - postgresql
+  - if: env(DB) = mysql
+    - mysql
