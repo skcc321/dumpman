@@ -1,7 +1,0 @@
-test:
-  adapter: postgresql
-  database: travis_ci_test
-  encoding: utf8
-  host: localhost
-  username:
-  password:
