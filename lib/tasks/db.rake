@@ -20,12 +20,6 @@ namespace :db do
     Dumpman::Executor.rake(
       :drop,
       :create,
-    )
-
-    Rake::Task['db:migrate'].reenable
-    Rake::Task['db:migrate'].invoke('RAILS_ENV=test')
-
-    Dumpman::Executor.rake(
       :extract,
       :migrate
     )
