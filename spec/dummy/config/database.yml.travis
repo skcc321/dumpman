@@ -1,0 +1,19 @@
+default: &default
+  adapter: postgresql
+  encoding: utf8
+  pool: 5
+  username: chris
+  password: somepass
+  host: localhost
+
+development:
+  <<: *default
+  database: dumpman_development
+
+test:
+  <<: *default
+  database: dumpman_test
+
+production:
+  <<: *default
+  database: dumpman_production
