@@ -39,6 +39,13 @@ script:
 after_script:
   # coverage
   - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
+  - bundle exec danger
+
+after_success:
+  - bundle exec danger
+
+after_failure:
+  - bundle exec danger
 
 services:
   - postgresql
