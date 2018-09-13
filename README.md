@@ -5,7 +5,7 @@
 # Dumpman
 Dumpman gem is what you need if you have application somewhere and need to dump your DB download it and up that dump localy!
 
-![alt text](https://s-media-cache-ak0.pinimg.com/originals/23/e6/df/23e6df3e2d857d3338c476094fe77fef.jpg)
+![alt text](https://www.google.com/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&cad=rja&uact=8&ved=2ahUKEwjV38WrybjdAhWJiywKHbwPAYcQjRx6BAgBEAU&url=https%3A%2F%2Fen.wikipedia.org%2Fwiki%2FDumpster_diving&psig=AOvVaw36lgXoxO853-50dDVq_RsK&ust=1536948439309360)
 
 ## Installation
 
