@@ -17,12 +17,7 @@ namespace :db do
 
   desc 'up LOCAL dump'
   task :up => :environment do
-    Dumpman::Executor.rake(
-      :drop,
-      :create,
-      :extract,
-      :migrate
-    )
+    Dumpman::Executor.rake(:restore)
   end
 
   desc 'zips the database'
@@ -44,6 +39,7 @@ namespace :db do
 
   desc 'restores the database'
   task :restore => :environment do
+    Dumpman::Executor.rake('schema:load')
     Dumpman::Commandor.restore
   end
 end

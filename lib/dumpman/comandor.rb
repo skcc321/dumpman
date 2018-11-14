@@ -30,7 +30,6 @@ module Dumpman
     end
 
     def restore
-      Dumpman::Executor.rake(:drop, :create)
       Dumpman::Database.restore
     end
   end
