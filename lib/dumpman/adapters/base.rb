@@ -11,11 +11,27 @@ module Dumpman
         instance.restore_cmd
       end
 
+      def self.drop_cmd
+        instance.dump_cmd
+      end
+
+      def self.create_cmd
+        instance.restore_cmd
+      end
+
       def dump_cmd
         raise(NotImplementedError)
       end
 
       def restore_cmd
+        raise(NotImplementedError)
+      end
+
+      def drop_cmd
+        raise(NotImplementedError)
+      end
+
+      def create_cmd
         raise(NotImplementedError)
       end
 

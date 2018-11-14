@@ -30,6 +30,8 @@ module Dumpman
     end
 
     def restore
+      Dumpman::Database.drop
+      Dumpman::Database.create
       Dumpman::Database.restore
     end
   end

@@ -10,6 +10,16 @@ module Dumpman
       Dumpman::Executor.system(cmd)
     end
 
+    def drop
+      cmd = strategy.drop_cmd
+      Dumpman::Executor.system(cmd)
+    end
+
+    def create
+      cmd = strategy.create_cmd
+      Dumpman::Executor.system(cmd)
+    end
+
     def strategy
       case ActiveRecord::Base.connection_config.fetch(:adapter)
       when 'postgresql' then Dumpman::Adapters::Pg
@@ -21,6 +31,8 @@ module Dumpman
 
     module_function :dump,
       :restore,
+      :drop,
+      :create,
       :strategy
   end
 end
