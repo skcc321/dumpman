@@ -1,0 +1,2 @@
+class PostgresUser < ApplicationRecord
+end

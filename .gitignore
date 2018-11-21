@@ -1,0 +1,16 @@
+/.bundle/
+/.yardoc
+/Gemfile.lock
+/_yardoc/
+/coverage/
+/doc/
+/pkg/
+/spec/reports/
+/spec/dummy/config/database.yml
+/spec/dummy/log/
+/spec/dummy/dumpman.sql
+/spec/dummy/dumpman.sql.zip
+/tmp/
+
+# rspec failure tracking
+.rspec_status
