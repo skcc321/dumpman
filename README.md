@@ -57,7 +57,7 @@ Update app/config/initializers/dumpman.rb with propper settings.
 
 Now you are able to use awesome commands:
 
-    $ rake db:prod:up
+    $ rake db:prod:up # makes db dump on that server, compreses it with ZIP, downloads, extracts localy 
     $ rake db:stage:up
     $ rake db:qa:up
     ...
