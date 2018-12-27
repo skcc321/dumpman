@@ -12,7 +12,7 @@ Dumpman gem is what you need if you have application somewhere and need to dump 
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'dumpman', git: 'git@github.com:skcc321/dumpman.git'
+gem 'dumpman'
 ```
 
 Then execute:
