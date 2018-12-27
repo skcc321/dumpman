@@ -7,10 +7,12 @@ Dumpman gem is what you need if you have application somewhere and need to dump 
 
 ### use case:
 You have staging OR production server with running rails app on it.
+
 For some reason you need DB dump from that server.
+
 What you can do?
-Solution 1: connect to that server, make dump via CLI, download it, extract it on your loacl machine
-Solution 2: install this gem and run ```bash rake db:prod:up``` and that's it.
+- Solution 1: connect to that server, make dump via CLI, download it, extract it on your loacl machine
+- Solution 2: install this gem and run ```bash rake db:prod:up``` and that's it.
 
 ![alt text](https://farm8.staticflickr.com/7347/10602023975_fd3e5b61b7_b.jpg)
 
