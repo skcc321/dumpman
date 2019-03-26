@@ -1,3 +1,4 @@
+[![Gem Version](https://badge.fury.io/rb/dumpman@2x.png)](https://badge.fury.io/rb/dumpman)
 [![Build Status](https://travis-ci.org/skcc321/dumpman.svg?branch=master)](https://travis-ci.org/skcc321/dumpman)
 [![Maintainability](https://api.codeclimate.com/v1/badges/3f69b1bb862be2a7e6ce/maintainability)](https://codeclimate.com/github/skcc321/dumpman/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/3f69b1bb862be2a7e6ce/test_coverage)](https://codeclimate.com/github/skcc321/dumpman/test_coverage)
@@ -35,7 +36,7 @@ Or install it yourself as:
 Generate default config:
 
     $ rails g dumpman
-    
+
 it will create file app/config/initializers/dumpman.rb
 ```ruby
 Dumpman.setup do
@@ -66,7 +67,7 @@ Update app/config/initializers/dumpman.rb with propper settings.
 
 Now you are able to use awesome commands:
 
-    $ rake db:prod:up # makes db dump on that server, compreses it with ZIP, downloads, extracts localy 
+    $ rake db:prod:up # makes db dump on that server, compreses it with ZIP, downloads, extracts localy
     $ rake db:stage:up
     $ rake db:qa:up
     ...
