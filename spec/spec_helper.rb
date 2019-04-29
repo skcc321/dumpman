@@ -22,7 +22,6 @@ RSpec.configure do |config|
   end
 
   config.before(:example) do
-    File.delete(Dumpman.dump_zip_name) if File.exists?(Dumpman.dump_zip_name)
     File.delete(Dumpman.dump_file_name) if File.exists?(Dumpman.dump_file_name)
 
     Rake::Task['db:create'].invoke
@@ -30,7 +29,6 @@ RSpec.configure do |config|
   end
 
   config.after(:example) do
-    File.delete(Dumpman.dump_zip_name) if File.exists?(Dumpman.dump_zip_name)
     File.delete(Dumpman.dump_file_name) if File.exists?(Dumpman.dump_file_name)
   end
 end
