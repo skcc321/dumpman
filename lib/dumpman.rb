@@ -13,7 +13,7 @@ module Dumpman
   mattr_accessor :connections
 
   @@dump_folder = '.'
-  @@dump_file_name = 'dumpman.sql'
+  @@dump_file_name = 'dumpman.sql.gz'
   @@connections = []
 
   class << self
@@ -43,14 +43,6 @@ module Dumpman
 
     def dump_file
       File.join(dump_folder, dump_file_name)
-    end
-
-    def dump_zip_name
-      "#{dump_file_name}.zip"
-    end
-
-    def dump_zip
-      File.join(dump_folder, dump_zip_name)
     end
   end
 end
