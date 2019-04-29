@@ -45,12 +45,12 @@ module Dumpman
       File.join(dump_folder, dump_file_name)
     end
 
-    def dump_zip_name
-      "#{dump_file_name}.zip"
+    def dump_archive_name
+      "#{dump_file_name}.gz"
     end
 
-    def dump_zip
-      File.join(dump_folder, dump_zip_name)
+    def dump_archive
+      File.join(dump_folder, dump_archive_name)
     end
   end
 end

@@ -1,27 +1,26 @@
-require "zip"
+require "zlib"
 
 module Dumpman
   module Commandor
     extend self
 
-    def zip
+    def archive
       # clean up from old dump
-      File.delete(Dumpman.dump_zip) if File.exists?(Dumpman.dump_zip)
+      File.delete(Dumpman.dump_archive) if File.exists?(Dumpman.dump_archive)
 
-      Zip::File.open(Dumpman.dump_zip, Zip::File::CREATE) do |zipfile|
-        zipfile.add(Dumpman.dump_file_name, Dumpman.dump_folder + '/' + Dumpman.dump_file_name)
+      Zlib::GzipWriter.open(Dumpman.dump_archive, 9) do |gz|
+        gz.write(Dumpman.dump_file_name)
       end
     end
 
-    def unzip
-      # clean up from old zip
+    def unarchive
+      # clean up from old archive
       File.delete(Dumpman.dump_file) if File.exists?(Dumpman.dump_file)
 
-      Zip::File.open(Dumpman.dump_zip) do |zip_file|
-        zip_file.each do |entry|
-          puts "Extracting #{entry.name}"
-          entry.extract(Dumpman.dump_file)
-        end
+      Zlib::GzipReader.open(Dumpman.dump_archive) do |gz|
+        puts "Extracting #{Dumpman.dump_file}"
+
+        File.write(Dumpman.dump_file, gz.read)
       end
     end
 

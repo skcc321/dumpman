@@ -1,4 +1,4 @@
-require 'zip'
+require 'zlib'
 require 'dumpman'
 
 namespace :db do
@@ -23,15 +23,15 @@ namespace :db do
     )
   end
 
-  desc 'zips the database'
+  desc 'archives the database'
   task :compress => :environment do
     Dumpman::Commandor.dump
-    Dumpman::Commandor.zip
+    Dumpman::Commandor.archive
   end
 
-  desc 'unzips the database'
+  desc 'unarchives the database'
   task :extract => :environment do
-    Dumpman::Commandor.unzip
+    Dumpman::Commandor.unarchive
     Dumpman::Commandor.restore
   end
 

@@ -23,7 +23,7 @@ module Dumpman
     end
 
     def fetch_dump_to_local
-      "scp #{ssh_opts} #{ssh_cmd}:#{app_path}/#{Dumpman.dump_zip_name} #{Dumpman.dump_folder}/"
+      "scp #{ssh_opts} #{ssh_cmd}:#{app_path}/#{Dumpman.dump_archive_name} #{Dumpman.dump_folder}/"
     end
   end
 end

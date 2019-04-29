@@ -13,11 +13,11 @@ RSpec.describe Dumpman do
     end
 
     describe 'db:compress' do
-      it 'creates zip file with db dump' do
+      it 'creates tar.gz file with db dump' do
         expect do
           Rake::Task['db:compress'].reenable
           Rake::Task['db:compress'].invoke
-        end.to change { File.exists?(Dumpman.dump_zip_name) }.from(false).to(true)
+        end.to change { File.exists?(Dumpman.dump_archive_name) }.from(false).to(true)
       end
     end
   end
