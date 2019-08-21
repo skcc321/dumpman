@@ -46,7 +46,7 @@ module Dumpman
         end
 
         def username
-          @username ||= db_config.fetch(:username)
+          @username ||= db_config.fetch(:username, db_config.fetch(:user))
         end
 
         def password
