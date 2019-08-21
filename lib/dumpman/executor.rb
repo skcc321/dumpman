@@ -5,7 +5,15 @@ module Dumpman
     def system(*commands)
       cmd = commands.join(' && ')
       puts("executing: #{cmd}")
-      Kernel.system(cmd)
+
+      # execute & capture the result
+      if block_given?
+        # if success yield the result message
+        yield %x[#{cmd}].strip if $?.success?
+      else
+        # return execution t/f
+        Kernel.system(cmd)
+      end
     end
 
     def rake(*commands)

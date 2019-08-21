@@ -5,25 +5,24 @@ module Dumpman
         connection.name == connection_name
       end
 
-      instance = self.new(connection.attrs)
+      instance = self.new(attrs: connection.attrs)
       instance.fetch_remote_dump
     end
 
     def fetch_remote_dump
-      Dumpman::Executor.system(
-        compress_dump_remotely,
-        fetch_dump_to_local
-      )
+      fetcher = fetcher_class.new(attrs)
+      fetcher.get_dump
     end
 
     private
 
-    def compress_dump_remotely
-      "ssh #{ssh_opts} #{ssh_cmd} 'cd #{app_path} && bash --login -c \"RAILS_ENV=#{app_env} bundle exec rake db:dump\"'"
-    end
-
-    def fetch_dump_to_local
-      "scp #{ssh_opts} #{ssh_cmd}:#{app_path}/#{Dumpman.dump_file_name} #{Dumpman.dump_folder}/"
-    end
+      def fetcher_class
+        case attrs[:fetch_strategy]
+        when :docker then Dumpman::Fetchers::Docker
+        when :direct then Dumpman::Fetchers::Direct
+        else
+          Dumpman::Fetchers::Direct
+        end
+      end
   end
 end
