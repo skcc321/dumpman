@@ -4,15 +4,16 @@ module Dumpman
 
     def system(*commands)
       cmd = commands.join(' && ')
-      puts("executing: #{cmd}")
+      info(cmd)
 
       # execute & capture the result
       if block_given?
         # if success yield the result message
-        yield %x[#{cmd}].strip if $?.success?
+        result = %x[#{cmd}].strip
+        yield result if $?.success?
       else
         # return execution t/f
-        Kernel.system(cmd)
+        result = Kernel.system(cmd)
       end
     end
 
@@ -21,6 +22,15 @@ module Dumpman
         Rake::Task["db:#{command}"].reenable
         Rake::Task["db:#{command}"].invoke
       end
+    end
+
+    def info(cmd)
+      puts 'EXECUTING:'
+
+      puts cmd.gsub(/(\s{2})/, '\1')
+          .split(/\n/)
+          .map { |x| x.squeeze(' ') }
+          .reject(&:blank?)
     end
   end
 end

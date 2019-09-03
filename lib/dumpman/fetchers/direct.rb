@@ -25,11 +25,11 @@ module Dumpman
         def make_dump_remotely
           <<~SSH_COMMAND
             ssh #{ssh_opts} #{ssh_cmd} '\
-            export TEMP_DIR=$(mktemp -d)
+            export TEMP_DIR=$(mktemp -d)\
 
             cd #{app_path} && \
             bash --login -c "RAILS_ENV=#{app_env} bundle exec rake db:dump \
-            && cp #{Dumpman.dump_file_name} $TEMP_DIR/"
+            && cp #{Dumpman.dump_file_name} $TEMP_DIR/"\
 
             echo $TEMP_DIR'
           SSH_COMMAND
@@ -38,7 +38,7 @@ module Dumpman
         def fetch_dump_to_local(dump_location)
           <<~SSH_COMMAND
             scp #{ssh_opts} #{ssh_cmd}:#{dump_location}/#{Dumpman.dump_file_name} \
-            #{Dumpman.dump_folder}/"
+            #{Dumpman.dump_folder}/
           SSH_COMMAND
         end
     end
