@@ -4,7 +4,7 @@
 [![Test Coverage](https://api.codeclimate.com/v1/badges/3f69b1bb862be2a7e6ce/test_coverage)](https://codeclimate.com/github/skcc321/dumpman/test_coverage)
 
 # Dumpman
-Dumpman gem is what you need if you have application somewhere and need to dump your DB download it and up that dump localy!
+Dumpman gem is what you need if you have application somewhere and need to dump your DB, download it and restore that dump localy!
 
 ### use case:
 You have staging OR production server with running rails app on it.
@@ -12,7 +12,7 @@ You have staging OR production server with running rails app on it.
 For some reason you need DB dump from that server.
 
 What you can do?
-- Solution 1: connect to that server, make dump via CLI, download it, extract it on your loacl machine
+- Solution 1: connect to that server, make dump via CLI, download it, extract it on your local machine
 - Solution 2: install this gem and run ```bash rake db:prod:up``` and that's it.
 
 ![alt text](https://farm8.staticflickr.com/7347/10602023975_fd3e5b61b7_b.jpg)
