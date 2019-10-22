@@ -9,7 +9,7 @@ namespace :db do
       desc "up #{name} dump"
       task :up => :environment do
         Dumpman::Fetcher.fetch(name)
-        Dumpman::Executor.rake(:up)
+        # Dumpman::Executor.rake(:up)
       end
     end
   end

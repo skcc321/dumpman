@@ -50,11 +50,11 @@ module Dumpman
         end
 
         def password
-          @password ||= db_config.fetch(:password)
+          @password ||= db_config.fetch(:password) { raise("you should set password in 'database.yml'") }
         end
 
         def host
-          @host ||= db_config.fetch(:host)
+          @host ||= db_config.fetch(:host) { 'localhost' }
         end
     end
   end
