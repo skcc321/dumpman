@@ -38,11 +38,21 @@ module Dumpman
       private
 
         def db_config
-          @db_config ||= ActiveRecord::Base.connection_config
+          @db_config ||= if defined?(ActiveRecord)
+                           ActiveRecord::Base.connection_config
+                         elsif defined?(Hanami::Model)
+                           URI.parse(Hanami::Model.configuration.url)
+                         elsif defined?(Mongoid)
+                           URI.parse(Mongoid.configure.clients.dig("default", "uri")) ||
+                             OpenStruct.new(Mongoid.configure.clients.dig("default"))
+                         else
+                           raise('unknown db configuration')
+                         end
         end
 
         def database
-          @database ||= db_config.fetch(:database)
+          #                 Rails config           ||    Hanami/Mongoid config
+          @database ||= db_config.fetch(:database) { db_config.fetch(:scheme) }
         end
 
         def username
