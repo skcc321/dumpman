@@ -8,11 +8,14 @@ require 'dumpman/executor'
 require 'dumpman/fetchers/direct'
 require 'dumpman/fetchers/docker'
 require 'dumpman/fetcher'
-require 'dumpman/railtie'
 require 'dumpman/version'
 
+if defined?(Rails)
+  require 'dumpman/railtie'
+end
+
 module Dumpman
-  mattr_accessor :connections
+  attr_accessor :connections
 
   @@dump_folder = '.'
   @@dump_file_name = 'dumpman.sql.gz'

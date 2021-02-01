@@ -1,7 +1,16 @@
 require 'dumpman'
 
 namespace :db do
-  config = File.open(Rails.root.join('config', 'initializers', 'dumpman.rb')).read
+  config = File.open(
+    if defined?(Rails)
+      Rails
+    elsif defined?(Hanami)
+      binding.pry
+      Hanami
+    else
+
+    end.root.join('config', 'initializers', 'dumpman.rb')
+  ).read
   eval(config)
 
   Dumpman.connection_names.each do |name|
